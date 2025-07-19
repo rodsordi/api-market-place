@@ -9,12 +9,17 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infra</artifactId>
+    <artifactId>api-market-place.infra</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>br.com.alura</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>api-market-place.domain</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
 
         <dependency>
@@ -23,9 +28,24 @@
         </dependency>
 
         <dependency>
+            <groupId>io.awspring.cloud</groupId>
+            <artifactId>spring-cloud-aws-starter-s3</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
             <version>0.2.6</version>
+        </dependency>
+
+        <!-- Test -->
+
+        <dependency>
+            <groupId>br.com.alura</groupId>
+            <artifactId>api-market-place.domain</artifactId>
+            <type>test-jar</type>
+            <classifier>tests</classifier>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -45,6 +65,10 @@
         </testResources>
 
         <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>

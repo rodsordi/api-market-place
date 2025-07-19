@@ -1,7 +1,5 @@
 package br.com.alura.marketplace.application.v1.def;
 
-import br.com.alura.marketplace.domain.entity.Carrinho;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -36,13 +34,16 @@ public interface ProdutoDef {
 
     interface Request extends Detalhado {
 
+        PetDef.Request getPet();
     }
 
     interface Response extends DetalhadoPersistido {
 
+        PetDef.Response getPet();
     }
 
     interface Representacao extends RepresentadoPersistido {
 
+        PetDef.Representacao getPet();
     }
 }

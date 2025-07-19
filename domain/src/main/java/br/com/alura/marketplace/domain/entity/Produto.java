@@ -1,6 +1,7 @@
 package br.com.alura.marketplace.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,6 +13,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import static jakarta.persistence.CascadeType.ALL;
 
 @Getter
 @Builder
@@ -33,6 +36,11 @@ public class Produto implements Serializable {
 
     @Column
     private BigDecimal valor;
+
+    @OneToOne(cascade = ALL)
+    @JoinColumn(name = "pet_id", referencedColumnName = "petId", updatable = false, nullable = false)
+    @Valid
+    private Pet pet;
 
     @CreatedDate
     @Column

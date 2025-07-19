@@ -73,13 +73,13 @@
 
             <dependency>
                 <groupId>br.com.alura</groupId>
-                <artifactId>domain</artifactId>
+                <artifactId>api-market-place.domain</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>br.com.alura</groupId>
-                <artifactId>domain</artifactId>
+                <artifactId>api-market-place.domain</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <type>test-jar</type>
                 <classifier>tests</classifier>
@@ -87,13 +87,27 @@
 
             <dependency>
                 <groupId>br.com.alura</groupId>
-                <artifactId>infra</artifactId>
+                <artifactId>api-market-place.infra</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>br.com.alura</groupId>
-                <artifactId>infra</artifactId>
+                <artifactId>api-market-place.infra</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <type>test-jar</type>
+                <classifier>tests</classifier>
+            </dependency>
+
+            <dependency>
+                <groupId>br.com.alura</groupId>
+                <artifactId>api-market-place.application</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>br.com.alura</groupId>
+                <artifactId>api-market-place.application</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <type>test-jar</type>
                 <classifier>tests</classifier>

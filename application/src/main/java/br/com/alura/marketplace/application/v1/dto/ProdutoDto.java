@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -23,7 +25,8 @@ public final class ProdutoDto {
 
         private String nome;
         private String descricao;
-        private String valor;
+        private BigDecimal valor;
+        private PetDto.Request pet;
 
         public Produto buildProduto() {
             return mapper.converter(this);
@@ -37,9 +40,10 @@ public final class ProdutoDto {
         private UUID produtoId;
         private String nome;
         private String descricao;
-        private String valor;
-        private String criadoEm;
-        private String atualizadoEm;
+        private BigDecimal valor;
+        private PetDto.Response pet;
+        private LocalDateTime criadoEm;
+        private LocalDateTime atualizadoEm;
 
         public static Response buildProdutoDtoResponse(Produto produto) {
             return mapper.converter(produto);
@@ -52,9 +56,10 @@ public final class ProdutoDto {
 
         private UUID produtoId;
         private String nome;
-        private String valor;
-        private String criadoEm;
-        private String atualizadoEm;
+        private BigDecimal valor;
+        private PetDto.Representacao pet;
+        private LocalDateTime criadoEm;
+        private LocalDateTime atualizadoEm;
 
         public static Representacao buildProdutoDtoRepresentacao(Produto produto) {
             return mapper.converterParaRepresentacao(produto);

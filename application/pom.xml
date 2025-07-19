@@ -9,12 +9,17 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>application</artifactId>
+    <artifactId>api-market-place.application</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>br.com.alura</groupId>
-            <artifactId>infra</artifactId>
+            <artifactId>api-market-place.domain</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.alura</groupId>
+            <artifactId>api-market-place.infra</artifactId>
         </dependency>
 
         <dependency>
@@ -27,9 +32,28 @@
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
 
+        <!-- Test -->
+
+        <dependency>
+            <groupId>br.com.alura</groupId>
+            <artifactId>api-market-place.domain</artifactId>
+            <type>test-jar</type>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.alura</groupId>
+            <artifactId>api-market-place.infra</artifactId>
+            <type>test-jar</type>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -52,6 +76,21 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

@@ -1,6 +1,6 @@
 package br.com.alura.marketplace.infra.repository;
 
-import br.com.alura.marketplace.domain.entity.Carrinho;
+import br.com.alura.marketplace.domain.entity.Produto;
 import br.com.alura.marketplace.domain.repository.NotificacaoRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class NotificacaoRepositoryImpl implements NotificacaoRepository {
 
     @Override
-    public void notificar(Carrinho carrinho) {
+    public void notificar(Produto produto) {
 
     }
 }

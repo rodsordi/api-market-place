@@ -13,8 +13,12 @@ public class CadastroProdutoUseCase {
 
     private final ProdutoRepository produtoRepository;
 
+    private final
+
     public Produto cadastrar(Produto produto) {
         validate(produto);
+
+
 
         return produtoRepository.save(produto);
     }
