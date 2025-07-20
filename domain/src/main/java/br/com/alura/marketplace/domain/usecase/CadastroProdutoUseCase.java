@@ -1,6 +1,7 @@
 package br.com.alura.marketplace.domain.usecase;
 
 import br.com.alura.marketplace.domain.entity.Produto;
+import br.com.alura.marketplace.domain.repository.PetStoreRepository;
 import br.com.alura.marketplace.domain.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,14 @@ public class CadastroProdutoUseCase {
 
     private final ProdutoRepository produtoRepository;
 
-    private final
+    private final PetStoreRepository petStoreRepository;
 
     public Produto cadastrar(Produto produto) {
         validate(produto);
 
+        var produtoPetCadastrado = petStoreRepository.cadastrarPet(produto);
 
+        produto.update(produtoPetCadastrado);
 
         return produtoRepository.save(produto);
     }

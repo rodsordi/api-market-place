@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -24,9 +25,12 @@ public final class ProdutoDto {
     public static class Request implements ProdutoDef.Request {
 
         private String nome;
+        private String categoria;
+        private Produto.Status status;
         private String descricao;
         private BigDecimal valor;
-        private PetDto.Request pet;
+        List<String> urlFotos;
+        private List<String> tags;
 
         public Produto buildProduto() {
             return mapper.converter(this);
@@ -39,9 +43,11 @@ public final class ProdutoDto {
 
         private UUID produtoId;
         private String nome;
+        private String categoria;
+        private Produto.Status status;
         private String descricao;
         private BigDecimal valor;
-        private PetDto.Response pet;
+        private Long petStorePetId;
         private LocalDateTime criadoEm;
         private LocalDateTime atualizadoEm;
 
@@ -56,8 +62,9 @@ public final class ProdutoDto {
 
         private UUID produtoId;
         private String nome;
+        private String categoria;
+        private Produto.Status status;
         private BigDecimal valor;
-        private PetDto.Representacao pet;
         private LocalDateTime criadoEm;
         private LocalDateTime atualizadoEm;
 

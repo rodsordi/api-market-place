@@ -1,4 +1,4 @@
-package br.com.alura.marketplace.application.config;
+package br.com.alura.marketplace.infra.config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;

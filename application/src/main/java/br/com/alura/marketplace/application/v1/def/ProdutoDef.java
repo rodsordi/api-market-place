@@ -1,8 +1,11 @@
 package br.com.alura.marketplace.application.v1.def;
 
+import br.com.alura.marketplace.domain.entity.Produto;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 public interface ProdutoDef {
@@ -11,12 +14,20 @@ public interface ProdutoDef {
 
         String getNome();
 
+        String getCategoria();
+
+        Produto.Status getStatus();
+
         BigDecimal getValor();
     }
 
     interface Detalhado extends Serializable, Representado {
 
         String getDescricao();
+
+        List<String> getUrlFotos();
+
+        List<String> getTags();
     }
 
     interface RepresentadoPersistido extends Serializable, Representado {
@@ -30,20 +41,18 @@ public interface ProdutoDef {
 
     interface DetalhadoPersistido extends Serializable, RepresentadoPersistido {
 
+        Long getPetStorePetId();
     }
 
     interface Request extends Detalhado {
 
-        PetDef.Request getPet();
     }
 
     interface Response extends DetalhadoPersistido {
 
-        PetDef.Response getPet();
     }
 
     interface Representacao extends RepresentadoPersistido {
 
-        PetDef.Representacao getPet();
     }
 }
