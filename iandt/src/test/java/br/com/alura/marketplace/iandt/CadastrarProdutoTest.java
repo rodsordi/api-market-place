@@ -5,8 +5,10 @@ import br.com.alura.marketplace.domain.repository.ProdutoRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.awspring.cloud.s3.S3Template;
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
@@ -17,7 +19,6 @@ import static br.com.alura.marketplace.application.v1.dto.ProdutoDtoFactory.cria
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.petstore.model.factory.PetDtoFactory.criarPetDto;
-import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,12 +42,15 @@ class CadastrarProdutoTest implements PostgresSetup, LocalstackSetup, WiremockSe
     @Autowired
     ProdutoRepository produtoRepository;
 
+    @Value("${aws.s3.bucket.name}")
+    String bucketName;
+
     @BeforeEach
     void beforeEach() {
-        baseURI = String.format("http://localhost:%s/api", port);
+        RestAssured.baseURI = String.format("http://localhost:%s/api", port);
 
-        if (!s3Template.bucketExists("marketplace"))
-            s3Template.createBucket("marketplace");
+        if (!s3Template.bucketExists(bucketName))
+            s3Template.createBucket(bucketName);
     }
 
     @AfterEach
