@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.FetchType.EAGER;
 import static lombok.AccessLevel.PRIVATE;
@@ -30,10 +31,10 @@ public class Produto implements Serializable {
     @GeneratedValue
     private UUID produtoId;
 
-    @Column
+    @Column(nullable = false)
     private String nome;
 
-    @Column
+    @Column(nullable = false)
     private String categoria;
 
     @Getter
@@ -47,23 +48,22 @@ public class Produto implements Serializable {
     }
 
     @Enumerated(STRING)
-    @Column
+    @Column(nullable = false)
     private Status status;
 
-    @Column
+    @Column(nullable = false)
     private String descricao;
 
-    @Column
+    @Column(nullable = false)
     private BigDecimal valor;
 
-    @ElementCollection(targetClass = String.class, fetch = EAGER)
-    @CollectionTable(name = "foto", joinColumns = @JoinColumn(name = "pet_id"))
-    @Column(name = "url_foto", nullable = false)
-    @Singular(value = "urlFoto", ignoreNullCollections = true)
-    private List<String> urlFotos;
+    @Singular(value = "foto", ignoreNullCollections = true)
+    @OneToMany(cascade = ALL, orphanRemoval = true)
+    @JoinColumn(name = "produto_id", updatable = false, nullable = false)
+    private List<Foto> fotos;
 
     @ElementCollection(targetClass = String.class, fetch = EAGER)
-    @CollectionTable(name = "tag", joinColumns = @JoinColumn(name = "pet_id"))
+    @CollectionTable(name = "tag", joinColumns = @JoinColumn(name = "produto_id"))
     @Column(name = "tag", nullable = false)
     @Singular(value = "tag", ignoreNullCollections = true)
     private List<String> tags;
@@ -72,14 +72,14 @@ public class Produto implements Serializable {
     private Long petStorePetId;
 
     @CreatedDate
-    @Column
+    @Column(nullable = false)
     private LocalDateTime criadoEm;
 
     @LastModifiedDate
     @Column
     private LocalDateTime atualizadoEm;
 
-    public void update(Produto produto) {
+    public void atualizar(Produto produto) {
         if (produto == null)
             return;
 
@@ -88,9 +88,6 @@ public class Produto implements Serializable {
 
         if (produto.categoria != null)
             this.categoria = produto.categoria;
-
-        if (produto.urlFotos != null)
-            this.urlFotos = produto.urlFotos;
 
         if (produto.tags != null)
             this.tags = produto.tags;
@@ -106,5 +103,15 @@ public class Produto implements Serializable {
 
         if (produto.petStorePetId != null)
             this.petStorePetId = produto.petStorePetId;
+
+        atualizar(produto.getFotos());
+    }
+
+    private void atualizar(List<Foto> fotos) {
+        if (fotos == null || fotos.isEmpty())
+            return;
+
+        for (var i = 0; i < fotos.size(); i++)
+            this.fotos.get(i).atualizar(fotos.get(i));
     }
 }

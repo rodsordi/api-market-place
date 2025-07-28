@@ -6,6 +6,7 @@ import br.com.alura.marketplace.domain.entity.Produto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -29,7 +30,9 @@ public final class ProdutoDto {
         private Produto.Status status;
         private String descricao;
         private BigDecimal valor;
-        List<String> urlFotos;
+        @Singular(value = "foto", ignoreNullCollections = true)
+        private List<FotoDto.Request> fotos;
+        @Singular(value = "tag", ignoreNullCollections = true)
         private List<String> tags;
 
         public Produto buildProduto() {
@@ -48,6 +51,10 @@ public final class ProdutoDto {
         private String descricao;
         private BigDecimal valor;
         private Long petStorePetId;
+        @Singular(value = "foto", ignoreNullCollections = true)
+        private List<FotoDto.Response> fotos;
+        @Singular(value = "tag", ignoreNullCollections = true)
+        private List<String> tags;
         private LocalDateTime criadoEm;
         private LocalDateTime atualizadoEm;
 

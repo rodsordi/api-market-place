@@ -1,36 +1,22 @@
 package br.com.alura.marketplace.application.v1.def;
 
-import br.com.alura.marketplace.domain.entity.Produto;
-
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 
-public interface ProdutoDef {
+public interface FotoDef {
 
     interface Representado extends Serializable {
-
-        String getNome();
-
-        String getCategoria();
-
-        Produto.Status getStatus();
-
-        BigDecimal getValor();
+        String getFileName();
     }
 
     interface Detalhado extends Serializable, Representado {
 
-        String getDescricao();
-
-        List<String> getTags();
     }
 
     interface RepresentadoPersistido extends Serializable, Representado {
+        Long getFotoId();
 
-        UUID getProdutoId();
+        String getLink();
 
         LocalDateTime getCriadoEm();
 
@@ -39,17 +25,15 @@ public interface ProdutoDef {
 
     interface DetalhadoPersistido extends Serializable, RepresentadoPersistido {
 
-        Long getPetStorePetId();
     }
 
     interface Request extends Detalhado {
 
-        List<? extends FotoDef.Request> getFotos();
+        String getBase64();
     }
 
     interface Response extends Detalhado, DetalhadoPersistido {
 
-        List<? extends FotoDef.Response> getFotos();
     }
 
     interface Representacao extends RepresentadoPersistido {

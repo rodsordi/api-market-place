@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
 
+import static br.com.alura.marketplace.application.v1.dto.FotoDtoFactory.criarFotoDtoRequest;
+import static br.com.alura.marketplace.domain.entity.Produto.Status.AVAILABLE;
 import static lombok.AccessLevel.PRIVATE;
 
 @NoArgsConstructor(access = PRIVATE)
@@ -22,8 +24,13 @@ public final class ProdutoDtoFactory {
         public ProdutoDto.Request comTodosOsCampos() {
             return builder
                     .nome("Produto Teste")
+                    .categoria("Categoria 1")
+                    .status(AVAILABLE)
                     .descricao("Descrição do Produto Teste")
                     .valor(new BigDecimal("1.99"))
+                    .foto(criarFotoDtoRequest()
+                            .comTodosOsCampos())
+                    .tag("tag-1")
                     .build();
         }
     }

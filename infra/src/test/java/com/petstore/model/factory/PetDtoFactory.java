@@ -22,7 +22,7 @@ public final class PetDtoFactory {
                 .id(1L)
                 .name("Pet Name 1")
                 .category(new CategoryDto().id(1L).name("Category 1"))
-                .addPhotoUrlsItem("http://example.com/photo1.jpg")
+                .addPhotoUrlsItem("https://example.com/photo1.jpg")
                 .addTagsItem(new TagDto().id(1L).name("Tag 1"))
                 .status(AVAILABLE);
     }

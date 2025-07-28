@@ -1,6 +1,7 @@
 package br.com.alura.marketplace.domain.usecase;
 
 import br.com.alura.marketplace.domain.entity.Produto;
+import br.com.alura.marketplace.domain.repository.BucketRepository;
 import br.com.alura.marketplace.domain.repository.PetStoreRepository;
 import br.com.alura.marketplace.domain.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,12 +17,18 @@ public class CadastroProdutoUseCase {
 
     private final PetStoreRepository petStoreRepository;
 
+    private final BucketRepository bucketRepository;
+
     public Produto cadastrar(Produto produto) {
         validate(produto);
 
+        if (!produto.getFotos().isEmpty())
+            produto.getFotos()
+                    .forEach(bucketRepository::armazenar);
+
         var produtoPetCadastrado = petStoreRepository.cadastrarPet(produto);
 
-        produto.update(produtoPetCadastrado);
+        produto.atualizar(produtoPetCadastrado);
 
         return produtoRepository.save(produto);
     }

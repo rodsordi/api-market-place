@@ -11,6 +11,10 @@
 
     <artifactId>api-market-place.infra</artifactId>
 
+    <properties>
+        <flyway.version>10.17.2</flyway.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>br.com.alura</groupId>
@@ -38,6 +42,19 @@
             <version>0.2.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>${flyway.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Test -->
 
         <dependency>
@@ -54,6 +71,7 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
 
@@ -61,6 +79,7 @@
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
+                <filtering>true</filtering>
             </testResource>
         </testResources>
 

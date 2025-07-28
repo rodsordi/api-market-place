@@ -3,7 +3,10 @@ package br.com.alura.marketplace.domain.entity.assertions;
 import br.com.alura.marketplace.domain.entity.Produto;
 import lombok.RequiredArgsConstructor;
 
+import java.math.BigDecimal;
+
 import static br.com.alura.marketplace.domain.entity.Produto.Status.AVAILABLE;
+import static br.com.alura.marketplace.domain.entity.assertions.FotoAssertions.afirmaQue_Foto;
 import static lombok.AccessLevel.PRIVATE;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,9 +30,8 @@ public final class ProdutoAssertions {
                 .isEqualTo("Pet Name 1");
         assertThat(atual.getCategoria())
                 .isEqualTo("Category 1");
-        assertThat(atual.getUrlFotos())
-                .hasSize(1)
-                .contains("http://example.com/photo1.jpg");
+        afirmaQue_Foto(atual.getFotos().getFirst())
+                .foiConvertidoDe_PetDto();
         assertThat(atual.getTags())
                 .hasSize(1)
                 .containsExactly("Tag 1");
@@ -41,6 +43,35 @@ public final class ProdutoAssertions {
                 .isNull();
         assertThat(atual.getPetStorePetId())
                 .isEqualTo(1L);
+        assertThat(atual.getCriadoEm())
+                .isNull();
+        assertThat(atual.getAtualizadoEm())
+                .isNull();
+    }
+
+    /**
+     * @see br.com.alura.marketplace.application.v1.dto.ProdutoDtoFactory
+     * .comTodosOsCampos()
+     */
+    public void foiConvertidoDe_ProdutoDto_Request() {
+        assertThat(atual.getProdutoId())
+                .isNull();
+        assertThat(atual.getNome())
+                .isEqualTo("Produto Teste");
+        assertThat(atual.getCategoria())
+                .isEqualTo("Categoria 1");
+        assertThat(atual.getStatus())
+                .isEqualTo(AVAILABLE);
+        assertThat(atual.getDescricao())
+                .isEqualTo("Descrição do Produto Teste");
+        assertThat(atual.getValor())
+                .isEqualTo(new BigDecimal("1.99"));
+        afirmaQue_Foto(atual.getFotos().getFirst())
+                .foiConvertidoDe_ProdutoDto_Request();
+        assertThat(atual.getTags().getFirst())
+                .isEqualTo("tag-1");
+        assertThat(atual.getPetStorePetId())
+                .isNull();
         assertThat(atual.getCriadoEm())
                 .isNull();
         assertThat(atual.getAtualizadoEm())
