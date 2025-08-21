@@ -73,28 +73,20 @@ class ConsultaProdutoTest implements PostgresSetup, LocalstackSetup, RedisSetup 
                 var produto = criarProduto()
                         .comTodosOsCamposExcetoDB();
                 produtoRepository.save(produto);
-                // Quando
-                var response = given()
-                        .log().all()
-                        .get("/v1/produtos/{id}", produto.getProdutoId())
-                        .then()
-                        .log().all()
-                        .extract()
-                        .response();
-                // Então
-                assertThat(response.statusCode())
-                        .isEqualTo(200);
-                // Quando
-                response = given()
-                        .log().all()
-                        .get("/v1/produtos/{id}", produto.getProdutoId())
-                        .then()
-                        .log().all()
-                        .extract()
-                        .response();
-                // Então
-                assertThat(response.statusCode())
-                        .isEqualTo(200);
+                for (var i = 0; i < 2; i++) {
+                    // Quando
+                    var response = given()
+                            .log().all()
+                            .get("/v1/produtos/{id}", produto.getProdutoId())
+                            .then()
+                            .log().all()
+                            .extract()
+                            .response();
+                    // Então
+                    assertThat(response.statusCode())
+                            .isEqualTo(200);
+                    produtoRepository.deleteAll();
+                }
             }
         }
     }
