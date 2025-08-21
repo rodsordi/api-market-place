@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>iandt</artifactId>
+    <artifactId>api-market-place.iandt</artifactId>
 
     <profiles>
         <profile>
