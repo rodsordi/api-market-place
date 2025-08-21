@@ -30,9 +30,22 @@ public final class ProdutoFactory {
                 .descricao("Descrição 1")
                 .valor(new BigDecimal("1.99"))
                 .petStorePetId(1L)
-                .foto(criarFoto().comTodosOsCampos())
+                .foto(criarFoto()
+                        .comTodosOsCampos())
                 .criadoEm(newDateTime("21/12/2025 23:59:59"))
                 .atualizadoEm(newDateTime("22/12/2025 23:59:59"))
+                .build();
+    }
+
+    public Produto comTodosOsCamposExcetoDB() {
+        comTodosOsCampos();
+        return builder
+                .produtoId(null)
+                .criadoEm(null)
+                .atualizadoEm(null)
+                .clearFotos()
+                .foto(criarFoto()
+                        .comTodosOsCamposExcetoDB())
                 .build();
     }
 }

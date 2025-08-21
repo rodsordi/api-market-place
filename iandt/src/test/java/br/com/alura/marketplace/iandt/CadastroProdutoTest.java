@@ -28,7 +28,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ContextConfiguration(classes = Application.class)
 @Testcontainers
-class CadastrarProdutoTest implements PostgresSetup, LocalstackSetup, WiremockSetup {
+class CadastroProdutoTest implements PostgresSetup, LocalstackSetup, WiremockSetup {
 
     @LocalServerPort
     Integer port;

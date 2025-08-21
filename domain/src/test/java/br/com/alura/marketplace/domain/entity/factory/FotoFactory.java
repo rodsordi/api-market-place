@@ -25,4 +25,13 @@ public final class FotoFactory {
                 .atualizadoEm(newDateTime("14/12/2025 23:59:59"))
                 .build();
     }
+
+    public Foto comTodosOsCamposExcetoDB() {
+        comTodosOsCampos();
+        return builder
+                .fotoId(null)
+                .criadoEm(null)
+                .atualizadoEm(null)
+                .build();
+    }
 }

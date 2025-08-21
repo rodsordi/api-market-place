@@ -1,13 +1,17 @@
 package br.com.alura.marketplace.application.v1.controller;
 
 import br.com.alura.marketplace.application.v1.dto.ProdutoDto;
+import br.com.alura.marketplace.application.v1.mapper.ProdutoDtoMapper;
 import br.com.alura.marketplace.domain.usecase.CadastroProdutoUseCase;
 import br.com.alura.marketplace.domain.usecase.ConsultaProdutoUseCase;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
-import static br.com.alura.marketplace.application.v1.dto.ProdutoDto.Response.buildProdutoDtoResponse;
+import java.util.UUID;
+
+import static org.mapstruct.factory.Mappers.getMapper;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -15,6 +19,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/v1/produtos")
 public class ProdutoController {
+
+    public static final ProdutoDtoMapper mapper = getMapper(ProdutoDtoMapper.class);
 
     private final CadastroProdutoUseCase cadastroCarrinhoUseCase;
 
@@ -28,8 +34,18 @@ public class ProdutoController {
             @Valid
             @RequestBody
             ProdutoDto.Request requestBody) {
-        var produto = requestBody.buildProduto();
+        var produto = mapper.converter(requestBody);
         var produtoCriado = cadastroCarrinhoUseCase.cadastrar(produto);
-        return buildProdutoDtoResponse(produtoCriado);
+        return mapper.converter(produtoCriado);
+    }
+
+    @GetMapping(path = "/{produtoId}",
+            produces = APPLICATION_JSON_VALUE)
+    @Cacheable(value = "Produtos", key = "#produtoId")
+    public ProdutoDto.Response consultarProdutoPorId(
+            @PathVariable("produtoId")
+            UUID produtoId) {
+        var produtoCarregado = consultaProdutoUseCase.consultarPorId(produtoId);
+        return mapper.converter(produtoCarregado);
     }
 }

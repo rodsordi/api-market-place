@@ -1,7 +1,6 @@
 package br.com.alura.marketplace.application.v1.dto;
 
 import br.com.alura.marketplace.application.v1.def.ProdutoDef;
-import br.com.alura.marketplace.application.v1.mapper.ProdutoDtoMapper;
 import br.com.alura.marketplace.domain.entity.Produto;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,12 +13,9 @@ import java.util.List;
 import java.util.UUID;
 
 import static lombok.AccessLevel.PRIVATE;
-import static org.mapstruct.factory.Mappers.getMapper;
 
 @NoArgsConstructor(access = PRIVATE)
 public final class ProdutoDto {
-
-    public static final ProdutoDtoMapper mapper = getMapper(ProdutoDtoMapper.class);
 
     @Getter
     @Builder
@@ -34,10 +30,6 @@ public final class ProdutoDto {
         private List<FotoDto.Request> fotos;
         @Singular(value = "tag", ignoreNullCollections = true)
         private List<String> tags;
-
-        public Produto buildProduto() {
-            return mapper.converter(this);
-        }
     }
 
     @Getter
@@ -57,10 +49,6 @@ public final class ProdutoDto {
         private List<String> tags;
         private LocalDateTime criadoEm;
         private LocalDateTime atualizadoEm;
-
-        public static Response buildProdutoDtoResponse(Produto produto) {
-            return mapper.converter(produto);
-        }
     }
 
     @Getter
@@ -74,9 +62,5 @@ public final class ProdutoDto {
         private BigDecimal valor;
         private LocalDateTime criadoEm;
         private LocalDateTime atualizadoEm;
-
-        public static Representacao buildProdutoDtoRepresentacao(Produto produto) {
-            return mapper.converterParaRepresentacao(produto);
-        }
     }
 }

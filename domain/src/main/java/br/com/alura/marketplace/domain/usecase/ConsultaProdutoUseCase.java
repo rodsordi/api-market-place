@@ -14,13 +14,8 @@ public class ConsultaProdutoUseCase {
 
     private final ProdutoRepository produtoRepository;
 
-    public Produto pesquisarPorId(UUID id) {
+    public Produto consultarPorId(UUID id) {
         return produtoRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(Produto.class));
-    }
-
-    public Produto pesquisarPorNome(String nome) {
-        return produtoRepository.findByNome(nome)
                 .orElseThrow(() -> new NotFoundException(Produto.class));
     }
 }
