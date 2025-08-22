@@ -3,10 +3,12 @@ package com.petstore.model.assertions;
 import com.petstore.model.PetDto;
 import lombok.RequiredArgsConstructor;
 
+import static br.com.alura.marketplace.domain.util.ReflectionUtil.afirmaQueOObjeto;
 import static com.petstore.model.PetDto.StatusEnum.AVAILABLE;
 import static lombok.AccessLevel.PRIVATE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
+import static org.mockito.Mockito.spy;
 
 @RequiredArgsConstructor(access = PRIVATE)
 public final class PetDtoAssertions {
@@ -14,7 +16,7 @@ public final class PetDtoAssertions {
     private final PetDto atual;
 
     public static PetDtoAssertions afirmaQue_PetDto(PetDto atual) {
-        return new PetDtoAssertions(atual);
+        return new PetDtoAssertions(spy(atual));
     }
 
     /**
@@ -41,5 +43,8 @@ public final class PetDtoAssertions {
                 );
         assertThat(atual.getStatus())
                 .isEqualTo(AVAILABLE);
+        // E
+        afirmaQueOObjeto(atual)
+                .teveTodosOsMetodosGetVerificadosPeloMenosUmaVez();
     }
 }

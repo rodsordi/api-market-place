@@ -5,15 +5,17 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import static br.com.alura.marketplace.domain.util.DateUtil.newDateTime;
+import static br.com.alura.marketplace.domain.util.ReflectionUtil.afirmaQueOObjeto;
 import static lombok.AccessLevel.PRIVATE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.spy;
 
 @NoArgsConstructor(access = PRIVATE)
 public final class FotoDtoAssertions {
 
     public static Response afirmaQue_FotoDto_Response(FotoDto.Response atual) {
-        return new Response(atual);
+        return new Response(spy(atual));
     }
 
     @RequiredArgsConstructor(access = PRIVATE)
@@ -36,6 +38,9 @@ public final class FotoDtoAssertions {
                     .isEqualTo(newDateTime("13/12/2025 23:59:59"));
             assertThat(atual.getAtualizadoEm())
                     .isEqualTo(newDateTime("14/12/2025 23:59:59"));
+            // E
+            afirmaQueOObjeto(atual)
+                    .teveTodosOsMetodosGetVerificadosPeloMenosUmaVez();
         }
     }
 }

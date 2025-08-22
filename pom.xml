@@ -7,7 +7,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.6</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <groupId>br.com.alura</groupId>
@@ -29,6 +29,9 @@
         <module>application</module>
         <module>iandt</module>
     </modules>
+
+    <!-- Perfil para ativar a execução de testes de integração -->
+    <!-- Quando ativado, então desabilita a execução dos testes de unidade -->
 
     <profiles>
         <profile>
@@ -52,6 +55,8 @@
             </build>
         </profile>
     </profiles>
+
+    <!-- Disponibiliza as dependências dos módulos para serem utilizadas pelos módulos filhos -->
 
     <dependencyManagement>
         <dependencies>
@@ -136,6 +141,9 @@
 
     <build>
         <pluginManagement>
+
+            <!-- Empacota as classes de testes dos módulos para serem reaproveitados entre os mesmos -->
+
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

@@ -9,14 +9,16 @@ import java.math.BigDecimal;
 import static br.com.alura.marketplace.application.v1.dto.assertions.FotoDtoAssertions.afirmaQue_FotoDto_Response;
 import static br.com.alura.marketplace.domain.entity.Produto.Status.AVAILABLE;
 import static br.com.alura.marketplace.domain.util.DateUtil.newDateTime;
+import static br.com.alura.marketplace.domain.util.ReflectionUtil.afirmaQueOObjeto;
 import static lombok.AccessLevel.PRIVATE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.spy;
 
 @NoArgsConstructor(access = PRIVATE)
 public final class ProdutoDtoAssertions {
 
     public static Response afirmaQue_ProdutoDto_Response(ProdutoDto.Response atual) {
-        return new Response(atual);
+        return new Response(spy(atual));
     }
 
     @RequiredArgsConstructor(access = PRIVATE)
@@ -51,6 +53,9 @@ public final class ProdutoDtoAssertions {
                     .isEqualTo(newDateTime("21/12/2025 23:59:59"));
             assertThat(atual.getAtualizadoEm())
                     .isEqualTo(newDateTime("22/12/2025 23:59:59"));
+            // E
+            afirmaQueOObjeto(atual)
+                    .teveTodosOsMetodosGetVerificadosPeloMenosUmaVez();
         }
     }
 }

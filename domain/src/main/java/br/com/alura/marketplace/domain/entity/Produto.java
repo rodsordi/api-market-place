@@ -96,8 +96,14 @@ public class Produto implements Serializable {
         if (produto.status != null)
             this.status = produto.status;
 
-        if (produto.descricao != null)
-            this.descricao = produto.descricao;
+        if (produto.descricao != null) {
+            var descStatus = switch (this.status) {
+                case AVAILABLE -> "(Disponível)";
+                case PENDING -> "(Pendente)";
+                case SOLD -> "(Vendido)";
+            };
+            this.descricao = produto.descricao + " " + descStatus;
+        }
 
         if (produto.valor != null)
             this.valor = produto.valor;

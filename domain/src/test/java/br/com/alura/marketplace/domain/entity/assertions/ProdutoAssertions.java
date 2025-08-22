@@ -7,8 +7,10 @@ import java.math.BigDecimal;
 
 import static br.com.alura.marketplace.domain.entity.Produto.Status.AVAILABLE;
 import static br.com.alura.marketplace.domain.entity.assertions.FotoAssertions.afirmaQue_Foto;
+import static br.com.alura.marketplace.domain.util.ReflectionUtil.afirmaQueOObjeto;
 import static lombok.AccessLevel.PRIVATE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.spy;
 
 @RequiredArgsConstructor(access = PRIVATE)
 public final class ProdutoAssertions {
@@ -16,7 +18,7 @@ public final class ProdutoAssertions {
     private final Produto atual;
 
     public static ProdutoAssertions afirmaQue_Produto(Produto atual) {
-        return new ProdutoAssertions(atual);
+        return new ProdutoAssertions(spy(atual));
     }
 
     /**
@@ -47,6 +49,9 @@ public final class ProdutoAssertions {
                 .isNull();
         assertThat(atual.getAtualizadoEm())
                 .isNull();
+        // E
+        afirmaQueOObjeto(atual)
+                .teveTodosOsMetodosGetVerificadosPeloMenosUmaVez();
     }
 
     /**
@@ -76,5 +81,8 @@ public final class ProdutoAssertions {
                 .isNull();
         assertThat(atual.getAtualizadoEm())
                 .isNull();
+        // E
+        afirmaQueOObjeto(atual)
+                .teveTodosOsMetodosGetVerificadosPeloMenosUmaVez();
     }
 }

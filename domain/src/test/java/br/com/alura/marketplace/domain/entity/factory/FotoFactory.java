@@ -4,6 +4,7 @@ import br.com.alura.marketplace.domain.entity.Foto;
 import lombok.RequiredArgsConstructor;
 
 import static br.com.alura.marketplace.domain.util.DateUtil.newDateTime;
+import static br.com.alura.marketplace.domain.util.ReflectionUtil.afirmaQueOObjeto;
 import static lombok.AccessLevel.PRIVATE;
 
 @RequiredArgsConstructor(access = PRIVATE)
@@ -16,7 +17,7 @@ public final class FotoFactory {
     }
 
     public Foto comTodosOsCampos() {
-        return builder
+        var result = builder
                 .fotoId(1L)
                 .fileName("file-name-1.jpg")
                 .link("https://example.com/foto1.jpg")
@@ -24,6 +25,10 @@ public final class FotoFactory {
                 .criadoEm(newDateTime("13/12/2025 23:59:59"))
                 .atualizadoEm(newDateTime("14/12/2025 23:59:59"))
                 .build();
+        // E
+        afirmaQueOObjeto(result)
+                .naoTemCamposVazios();
+        return result;
     }
 
     public Foto comTodosOsCamposExcetoDB() {

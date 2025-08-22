@@ -9,6 +9,7 @@ import java.util.UUID;
 import static br.com.alura.marketplace.domain.entity.Produto.Status.AVAILABLE;
 import static br.com.alura.marketplace.domain.entity.factory.FotoFactory.criarFoto;
 import static br.com.alura.marketplace.domain.util.DateUtil.newDateTime;
+import static br.com.alura.marketplace.domain.util.ReflectionUtil.afirmaQueOObjeto;
 import static lombok.AccessLevel.PRIVATE;
 
 @RequiredArgsConstructor(access = PRIVATE)
@@ -21,7 +22,7 @@ public final class ProdutoFactory {
     }
 
     public Produto comTodosOsCampos() {
-        return builder
+        var result = builder
                 .produtoId(UUID.fromString("45bd68cf-f261-4187-ad59-8e8f9cce47e6"))
                 .nome("Produto 1")
                 .categoria("Categoria 1")
@@ -35,6 +36,10 @@ public final class ProdutoFactory {
                 .criadoEm(newDateTime("21/12/2025 23:59:59"))
                 .atualizadoEm(newDateTime("22/12/2025 23:59:59"))
                 .build();
+        // E
+        afirmaQueOObjeto(result)
+                .naoTemCamposVazios();
+        return result;
     }
 
     public Produto comTodosOsCamposExcetoDB() {
