@@ -1,0 +1,204 @@
+Treinamento:
+  Titulo: Testes de Integração de back-ends(APIs)
+
+  Aula 1:
+    Titulo: Estruturando testes usando JUnit 5
+    Objetivos:
+      - Entender como a arquitetura de aplicação afeta os testes de unidade
+      - Usar o TDD no processo de desenvolvimento de testes usando factories e assertions nos mappers e DTOs
+      - Estruturar a organização dos testes com JUnit 5
+      - Conhecer algumas features auxiliares de testes para maior organização e celeridade
+    Pré-requisitos:
+      - Java 21 (LTS)
+      - Maven
+      - Spring Boot 3
+      - MapStruct
+    Tecnologias/Ferramentas:
+      Junit5:
+        - Nested, Befores, Afters, DisplayName
+        - ParametrizedTest
+        - AssertThrows
+      Mockito:
+        - Static Mock
+      Assertj:
+        - Semântica
+        - Collections
+
+    Vídeo 1.1:
+      Tipo: Contexto
+      Titulo: Apresentação
+      Competências e habilidades:
+        - Conhecer os temas e objetivos da aula
+      Roteiro:
+        - Apresentação e audiodescrição da pessoa instrutora.
+        - Contextualizar o curso: o que já aprendemos e onde estamos.
+        - Apresentar os temas e objetivos do módulo.
+
+    Vídeo 1.2:
+      Tipo: Contexto
+      Titulo: Entendendo a arquitetura de sistemas
+      Competências e habilidades:
+        - Compreender a arquitetura adotada do sistema
+        - Se planejar para implementar a arquitetura
+      Roteiro:
+        - Apresentar uma implementação de arquitetura limpa.
+        - Explicar como a especificação da arquitetura pode nos direcionar na implementação, porém não precisamos seguir literalmente.
+        - Explicar sobre maven multi-module.
+
+    Vídeo 1.3:
+      Tipo: Problema/Solução
+      Titulo: Impacto de arquitetura de sistemas nos testes
+      Competências e habilidades:
+        - Entender o impacto da implementação da arquitetura nos testes
+        - Respeitar as camadas definidas
+      Roteiro:
+        - Exemplificar classe referenciada em camada errada.
+        - Dtos na camada de negócio.
+        - Mostrar que essa classe no local errado impacta os testes.
+        - Mostrar que estamos testando 2 vezes o mesmo dto e deixando de testar a entidade.
+
+    Vídeo 1.4:
+      Tipo: Problema/Solução
+      Titulo: Testes ajudam a identificar problemas de arquitetura
+      Competências e habilidades:
+        - Entender que os testes ajudam a identificar problemas de arquitetura
+        - Negociar, planejar e criticar a arquitetura do sistema
+      Roteiro:
+        - Apresentar 2 classes que possuem testes de unidade iguais
+        - Remover uma das camadas desnecessárias.
+        - Explicar que podemos alterar a implementação para adequar o projeto de forma mais simples.
+
+    Vídeo 1.5:
+      Tipo: Contexto
+      Titulo: JUnit5
+      Competências e habilidades:
+        - Saber configurar o JUnit5
+        - Saber executar um teste no IntelliJ
+      Roteiro:
+        - Explicar que o JUnit5 é a versão mais recente do JUnit e que é amplamente utilizado no ecossistema Spring.
+        - Explicar que o JUnit5 traz diversas melhorias em relação ao JUnit4, como uma API mais fluida, integração com IDE e suporte a novas funcionalidades.
+        - Explicar que o JUnit5 é contemplado pelo spring-boot-starter-test.
+        - Apresentar o @Nested e @DisplayName
+        - Apresentar o @BeforeAll, @BeforeEach, @AfterAll e @AfterEach
+        - Apresentar o @Disable
+
+    Vídeo 1.6:
+      Tipo: Contexto
+      Titulo: Mappers
+      Competências e habilidades:
+        - Saber se planejar antes de desenvolver
+        - Entender o papel dos mappers
+        - Saber seguir padrões e especificações
+      Roteiro:
+        - Explicar como vamos criando rotinas de passos sequenciais na hora de desenvolver.
+        - Apresentar os componentes Mappers, Dtos e Entities
+        - Explicar como a implementação pode ser feita de várias formas, mas que é importante respeitar a especificação.
+        - Explicar o anti-padrão modelo anêmico
+        - Criar o teste do mapper sem assertions
+
+    Vídeo 1.7:
+      Tipo: Problema/Solução
+      Titulo: Semantica nas afirmações
+      Competências e habilidades:
+        - Entender os assertions
+      Roteiro:
+        - Explicar a estrutura Dado, Quando, Então
+        - Explicar que é interessante ter testes legíveis
+        - Apresentar o AssertJ
+        - Exemplificar Assert com primitivos
+        - Exemplificar Assert com collections
+        - Explicar que esse modelo evidencia que o trabalho realizado foi atingido com sucesso e serve como prova real de que funciona
+
+    Vídeo 1.8:
+      Tipo: Problema/Solução
+      Titulo: Processo de desenvolvimento e TDD
+      Competências e habilidades:
+        - Entender como organizar o código de testes
+        - Entender como usar os padrões de desenvolvimento para solucionar problemas
+      Roteiro:
+        - Explicar que precisamos nos condicionar à seguir um processo de desenvolvimento e que precisamos de ferramentas que nos ajudem a seguir esse processo.
+        - Mostrar que o TDD pode ser um laboratório no momento da implementação.
+        - Explicar como os testes podem ficar grandes e repetitivos.
+        - Explicar sobre centralização de código, manutenibilidade  e reutilização.
+        - Apresentar o conceito de Factory
+        - Apresentar um novo conceito de camada de Assertions
+
+    Vídeo 1.9:
+      Tipo: Contexto
+      Titulo: Casos de Uso
+      Competências e habilidades:
+        - Compreender as vantagens de criar mais classes paralelas ao invés de centralizar tudo em uma classe de serviço
+      Roteiro:
+        - Explicar como organizar nossas classes de negócio em casos de uso e as vantagens disso.
+        - Explicar que como cada caso de uso é uma classe, há menos conflitos de merge dado um projeto com vários desenvolvedores, além de ter uma classe de teste para cada caso de uso.
+        - Criar um caso de uso com dependências @Autowired
+
+    Vídeo 1.10:
+      Tipo: Problema/Solução
+      Titulo: Casos de Uso
+      Competências e habilidades:
+        - Entender por que não devemos usar @Autowired
+        - Entender como usar @ExtendWith com Mockito
+        - Entender como usar @InjectMocks
+      Roteiro:
+        - Criar teste de caso de uso.
+        - Explicar sobre o @Autowired e como alterar para variáveis finais.
+        - Explicar sobre o @ExtendWith com Mockito e como ele pode ser utilizado para injetar dependências nos testes.
+
+    Vídeo 1.11:
+      Tipo: Problema/Solução
+      Titulo: Cenários de falha
+      Competências e habilidades:
+        - Estruturar cenários de falha
+      Roteiro:
+        - Criar teste de caso de uso com cenário de falha.
+        - Explicar sobre o AssertThrows
+
+    Vídeo 1.12:
+      Tipo: Problema/Solução
+      Titulo: Teste parametrizado
+      Competências e habilidades:
+        - Saber como criar testes parametrizados
+      Roteiro:
+        - Configurar dependências do ParametrizedTest
+        - Explicar o conceito de testes parametrizados
+        - Criar teste parametrizado com Enum
+        - Criar teste parametrizado com CSV
+
+  Aula 2:
+    Titulo: Testes de integração em APIs back-end com spring boot
+    Objetivos:
+      - Compreender o papel dos testes de integração em APIs back-end
+      - Estruturar testes de integração de banco de dados usando containers
+      - Mocar integrações HTTP usando WireMock
+    Pré-requisitos:
+      - Flyway
+      - Feign
+      - Docker
+      - Kafka, RabbitMQ ou SQS
+    Tecnologias/Ferramentas:
+      SpringBootTest:
+        - TestConfiguration
+        - DynamicPropertySource
+        - ContextConfiguration
+      TestContainers:
+        - Códigos de inicialização, SSL...
+        - LocalStack, Postgres
+        - Redis # Estruturar
+        - Flyway config
+      WireMock:
+        - stubs, equal, regex, path
+      Rest Assured: # Comparar ao WebTestClient
+        - get, post, patch, delete
+        - header, query params, path variables
+
+  Aula 3:
+    Titulo: Automatização de testes de integração
+    Objetivos:
+      - Configurar pipeline para execução de testes de integração
+      - Criar scripts para execução de testes de integração em pipelines
+    Pré-requisitos:
+      - GitHub
+    Tecnologias/Ferramentas:
+      Docker Compose: # Estruturar
+      GitHub Actions: # Estruturar
