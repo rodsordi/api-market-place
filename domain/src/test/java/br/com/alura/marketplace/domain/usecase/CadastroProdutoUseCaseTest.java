@@ -4,6 +4,7 @@ import br.com.alura.marketplace.domain.entity.Produto;
 import br.com.alura.marketplace.domain.repository.BucketRepository;
 import br.com.alura.marketplace.domain.repository.PetStoreRepository;
 import br.com.alura.marketplace.domain.repository.ProdutoRepository;
+import br.com.alura.marketplace.domain.repository.QueueRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -39,6 +40,9 @@ class CadastroProdutoUseCaseTest {
 
     @Mock
     BucketRepository bucketRepository;
+
+    @Mock
+    QueueRepository queueRepository;
 
     @DisplayName("Quando cadastrar um produto")
     @Nested

@@ -1,17 +1,12 @@
 package br.com.alura.marketplace.application.v1.dto;
 
-import br.com.alura.marketplace.application.v1.def.FotoDef;
-import br.com.alura.marketplace.application.v1.def.ProdutoDef;
+import br.com.alura.marketplace.infra.def.FotoDef;
 import br.com.alura.marketplace.application.v1.mapper.ProdutoDtoMapper;
-import br.com.alura.marketplace.domain.entity.Produto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.mapstruct.factory.Mappers.getMapper;

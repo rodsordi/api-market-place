@@ -184,11 +184,11 @@ Treinamento:
       TestContainers:
         - Códigos de inicialização, SSL...
         - LocalStack, Postgres
-        - Redis # Estruturar
+        - Redis
         - Flyway config
       WireMock:
         - stubs, equal, regex, path
-      Rest Assured: # Comparar ao WebTestClient
+      Rest Assured:
         - get, post, patch, delete
         - header, query params, path variables
 

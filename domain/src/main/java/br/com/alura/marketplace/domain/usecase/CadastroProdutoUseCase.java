@@ -4,6 +4,7 @@ import br.com.alura.marketplace.domain.entity.Produto;
 import br.com.alura.marketplace.domain.repository.BucketRepository;
 import br.com.alura.marketplace.domain.repository.PetStoreRepository;
 import br.com.alura.marketplace.domain.repository.ProdutoRepository;
+import br.com.alura.marketplace.domain.repository.QueueRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,8 @@ public class CadastroProdutoUseCase {
 
     private final BucketRepository bucketRepository;
 
+    private final QueueRepository queueRepository;
+
     public Produto cadastrar(Produto produto) {
         validate(produto);
 
@@ -30,6 +33,10 @@ public class CadastroProdutoUseCase {
 
         produto.atualizar(produtoPetCadastrado);
 
-        return produtoRepository.save(produto);
+        var produtoSalvo = produtoRepository.save(produto);
+
+        queueRepository.notificarCadastro(produtoSalvo);
+
+        return produtoSalvo;
     }
 }

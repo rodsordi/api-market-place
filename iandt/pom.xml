@@ -48,6 +48,14 @@
 
         <dependency>
             <groupId>br.com.alura</groupId>
+            <artifactId>api-market-place.domain</artifactId>
+            <type>test-jar</type>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>br.com.alura</groupId>
             <artifactId>api-market-place.infra</artifactId>
             <type>test-jar</type>
             <classifier>tests</classifier>
@@ -62,21 +70,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>br.com.alura</groupId>
-            <artifactId>api-market-place.infra</artifactId>
-            <type>test-jar</type>
-            <classifier>tests</classifier>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.alura</groupId>
-            <artifactId>api-market-place.domain</artifactId>
-            <type>test-jar</type>
-            <classifier>tests</classifier>
-            <scope>test</scope>
-        </dependency>
 
         <!-- Dependências para testes de integração -->
 
@@ -107,6 +100,13 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>localstack</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>rabbitmq</artifactId>
+            <version>1.20.0</version>
             <scope>test</scope>
         </dependency>
 

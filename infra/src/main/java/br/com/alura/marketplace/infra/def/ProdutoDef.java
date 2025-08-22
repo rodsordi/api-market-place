@@ -1,4 +1,4 @@
-package br.com.alura.marketplace.application.v1.def;
+package br.com.alura.marketplace.infra.def;
 
 import br.com.alura.marketplace.domain.entity.Produto;
 

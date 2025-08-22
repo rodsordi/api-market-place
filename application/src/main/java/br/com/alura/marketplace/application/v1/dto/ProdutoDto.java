@@ -1,6 +1,6 @@
 package br.com.alura.marketplace.application.v1.dto;
 
-import br.com.alura.marketplace.application.v1.def.ProdutoDef;
+import br.com.alura.marketplace.infra.def.ProdutoDef;
 import br.com.alura.marketplace.domain.entity.Produto;
 import lombok.Builder;
 import lombok.Getter;

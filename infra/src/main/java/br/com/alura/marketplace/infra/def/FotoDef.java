@@ -1,4 +1,4 @@
-package br.com.alura.marketplace.application.v1.def;
+package br.com.alura.marketplace.infra.def;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
