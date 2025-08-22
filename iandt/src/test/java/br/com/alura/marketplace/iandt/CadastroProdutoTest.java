@@ -42,7 +42,7 @@ class CadastroProdutoTest implements PostgresSetup, LocalstackSetup, WiremockSet
     @Autowired
     ProdutoRepository produtoRepository;
 
-    @Value("${aws.s3.bucket.name}")
+    @Value("${aws.s3.bucket.nome}")
     String bucketName;
 
     @BeforeEach
