@@ -27,7 +27,6 @@
         <module>domain</module>
         <module>infra</module>
         <module>application</module>
-        <module>iandt</module>
     </modules>
 
     <!-- Perfil para ativar a execução de testes de integração -->
