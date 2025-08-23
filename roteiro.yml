@@ -179,7 +179,11 @@ Treinamento:
       Competências e habilidades:
         -
       Roteiro:
-        -
+        - Adicionar dependência H2 (infra/pom.xml)
+        - Criar configuração jpa (JpaConfig)
+        - Configurar teste (infra/application-test.properties)
+        - Criar teste para salvar produto (ProdutoRepositoryTest)
+        - Criar teste para consultar produtos com filtros
 
   Aula 2:
     Titulo: Testes de integração em APIs back-end com spring boot
