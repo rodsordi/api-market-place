@@ -1,6 +1,6 @@
 package br.com.alura.marketplace.application.errado;
 
-//import br.com.alura.marketplace.application.v1.config.RestControllerTestConfig;
+import br.com.alura.marketplace.application.v1.config.RestControllerTestConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @SpringBootTest(classes = ExemploComponenteNoLugarErrado.ExemploController.class)
 @AutoConfigureMockMvc
-//@ContextConfiguration(classes = RestControllerTestConfig.class)
+@ContextConfiguration(classes = RestControllerTestConfig.class)
 class ExemploControllerTest {
 
     @Autowired
