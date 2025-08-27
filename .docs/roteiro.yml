@@ -37,9 +37,6 @@ Treinamento:
       Roteiro:
         - Apresentação e audiodescrição da pessoa instrutora.
         - Apresentar testes de unidade.
-        - Apresentar pirâmide de testes e explicar ganhos. (https://www.alura.com.br/artigos/testes-automatizados?srsltid=AfmBOooMOjuMcjDJdL4DF2z16mGTx22ODv9jN3uHfHsVDWz_BIQfyNq8)
-        - Apresentar testes de integração.
-        - Apresentar pipe lines.
         - Explicar que precisamos conhecer spring-boot préviamente.
         - Explicar que não vamos criar implementações e sim testar as implementações que vão ser disponibilizadas.
 
@@ -202,7 +199,7 @@ Treinamento:
         - DynamicPropertySource
         - ContextConfiguration
       TestContainers:
-        - Códigos de inicialização, SSL...
+        - Setup
         - LocalStack, Postgres
         - Redis
         - Flyway config
@@ -211,6 +208,19 @@ Treinamento:
       Rest Assured:
         - get, post, patch, delete
         - header, query params, path variables
+
+    Vídeo 2.1:
+      Titulo: Apresentação
+      Tipo: Contexto
+      Competências e habilidades:
+        -
+      Roteiro:
+        - Apresentação e audiodescrição da pessoa instrutora.
+        - Apresentar testes de integração.
+        - Apresentar pirâmide de testes e explicar ganhos. (https://www.alura.com.br/artigos/testes-automatizados?srsltid=AfmBOooMOjuMcjDJdL4DF2z16mGTx22ODv9jN3uHfHsVDWz_BIQfyNq8)
+
+    Vídeo 2.2:
+
 
   Aula 3:
     Titulo: Automatização de testes de integração
