@@ -192,10 +192,13 @@ Treinamento:
       - Flyway
       - Feign
       - Docker
-      - Kafka, RabbitMQ ou SQS
+      - RabbitMQ
     Tecnologias/Ferramentas:
+      Maven:
+        - dependências
+        - profiles
+        - plugin skip tests
       SpringBootTest:
-        - TestConfiguration
         - DynamicPropertySource
         - ContextConfiguration
       TestContainers:
@@ -213,14 +216,102 @@ Treinamento:
       Titulo: Apresentação
       Tipo: Contexto
       Competências e habilidades:
-        -
+        - Conhecer os temas abordados
       Roteiro:
         - Apresentação e audiodescrição da pessoa instrutora.
         - Apresentar testes de integração.
         - Apresentar pirâmide de testes e explicar ganhos. (https://www.alura.com.br/artigos/testes-automatizados?srsltid=AfmBOooMOjuMcjDJdL4DF2z16mGTx22ODv9jN3uHfHsVDWz_BIQfyNq8)
+        - Explicar que deve ter conhecimento prévio de docker, flyway, cache, mensageria
 
     Vídeo 2.2:
+      Titulo: Testcontainers
+      Tipo: Contexto
+      Competências e habilidades:
+        - Entender testes de integração
+        - Conhecer nova ferramenta
+      Roteiro:
+        - Explicar que o teste container é uma ferramenta para substituir mocks e serviços em memória (https://testcontainers.com/guides/getting-started-with-testcontainers-for-java/)
+        - Explicar prós e contras de teste de integração em memória vs reais
 
+    Vídeo 2.3:
+      Titulo: Rest Assured
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Entender estrutura rest assured
+      Roteiro:
+        - Comentar dependências
+        - Configurar h2
+        - Setup maven (iandt/pom.xml)
+        - Estruturar teste (CadastroProdutoTest)
+        - Executar teste
+
+    Vídeo 2.4:
+      Titulo: Localstack (Testcontainers)
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Conhecer estrutura localstack
+      Roteiro:
+        - Apresentar chamada (CadastroProdutoUseCase)
+        - Descomentar dependências
+        - Setup (https://java.testcontainers.org/modules/localstack/)
+        - Setup maven (iandt/pom.xml)
+        - Setup config (LocalstackSetup)
+        - Setup properties (iandt/resources/application-test.properties
+        - Implementar test
+
+    Vídeo 2.5:
+      Titulo: Wiremock
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Entender estrutura wiremock
+      Roteiro:
+        - Apresentar chamada (CadastroProdutoUseCase)
+        - Descomentar dependências
+        - Setup maven (iandt/pom.xml)
+        - Setup properties (iandt/resources/application-test.properties
+        - Implementar test
+
+    Vídeo 2.6:
+      Titulo: Postgres (Testcontainers) com Flyway
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Entender flyway e estrutura banco
+      Roteiro:
+        - Apresentar chamada (CadastroProdutoUseCase)
+        - Descomentar dependências
+        - Apresentar flyway (infra/resources/db/migrations.sql)
+        - Setup (https://java.testcontainers.org/modules/databases/postgres/)
+        - Setup maven (iandt/pom.xml)
+        - Setup config (PostgresSetup)
+        - Setup properties (iandt/resources/application-test.properties
+        - Implementar test
+        - Executar teste com breakpoint e validar mensagem postada na fila ()
+
+    Vídeo 2.7:
+      Titulo: RabbitMQ (Testcontainers)
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Entender estrutura rabbitmq
+      Roteiro:
+        - Apresentar a chamada (CadastroProdutoUseCase)
+        - Descomentar dependências
+        - Setup (https://testcontainers.com/modules/rabbitmq/)
+        - Setup maven (iandt/pom.xml)
+        - Setup config (RabbitMQSetup)
+        - Setup properties (iandt/resources/application-test.properties
+        - Implementar test
+
+    Vídeo 2.8:
+      Titulo: Redis (Testcontainers)
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Entender estrutura redis
+      Roteiro:
+        - Apresentar implementação no controller (ProdutoController)
+        - Setup (https://testcontainers.com/modules/redis/)
+        - Setup maven (iandt/pom.xml)
+        - Setup config (RedisSetup)
+        - Implementar test
 
   Aula 3:
     Titulo: Automatização de testes de integração

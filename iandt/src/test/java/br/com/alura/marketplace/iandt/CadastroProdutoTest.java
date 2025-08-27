@@ -2,11 +2,13 @@ package br.com.alura.marketplace.iandt;
 
 import br.com.alura.marketplace.application.Application;
 import br.com.alura.marketplace.domain.repository.ProdutoRepository;
+import br.com.alura.marketplace.domain.usecase.CadastroProdutoUseCase;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.awspring.cloud.s3.S3Template;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -42,7 +44,7 @@ class CadastroProdutoTest implements PostgresSetup, LocalstackSetup, WiremockSet
     @Autowired
     ProdutoRepository produtoRepository;
 
-    @Value("${aws.s3.bucket.nome}")
+    @Value("${aws.s3.bucket.name}")
     String bucketName;
 
     @BeforeEach
