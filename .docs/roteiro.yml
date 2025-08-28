@@ -319,7 +319,60 @@ Treinamento:
       - Configurar pipeline para execução de testes de integração
       - Criar scripts para execução de testes de integração em pipelines
     Pré-requisitos:
+      - Docker
       - GitHub
     Tecnologias/Ferramentas:
-      Docker Compose: # Estruturar
-      GitHub Actions: # Estruturar
+      Docker:
+        - Docker compose
+      GitHub:
+        - GitHub Actions
+
+    Vídeo 3.1:
+      Titulo: Apresentação
+      Tipo: Contexto
+      Competências e habilidades:
+        - Conhecer os temas abordados
+      Roteiro:
+        - Apresentação e audiodescrição da pessoa instrutora.
+        - Apresentar github actions. (https://docs.github.com/pt/actions/get-started/understand-github-actions)
+        -
+
+    Vídeo 3.:
+      Titulo:
+      Tipo:
+      Competências e habilidades:
+        -
+      Roteiro:
+        -
+
+    Vídeo 3.:
+      Titulo:
+      Tipo:
+      Competências e habilidades:
+        -
+      Roteiro:
+        -
+
+    Vídeo 3.:
+      Titulo:
+      Tipo:
+      Competências e habilidades:
+        -
+      Roteiro:
+        -
+
+    Vídeo 3.:
+      Titulo:
+      Tipo:
+      Competências e habilidades:
+        -
+      Roteiro:
+        -
+
+    Vídeo 3.:
+      Titulo:
+      Tipo:
+      Competências e habilidades:
+        -
+      Roteiro:
+        -
