@@ -29,7 +29,7 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
 
     - name: Prepare artifact for upload
-      run: mkdir staging && cp target/*.jar staging
+      run: mkdir staging && cp application/target/*.jar staging
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
