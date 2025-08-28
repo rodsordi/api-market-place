@@ -335,23 +335,31 @@ Treinamento:
       Roteiro:
         - Apresentação e audiodescrição da pessoa instrutora.
         - Apresentar github actions. (https://docs.github.com/pt/actions/get-started/understand-github-actions)
-        -
+        - Apresentar pagamento. (https://docs.github.com/pt/actions/concepts/billing-and-usage)
 
-    Vídeo 3.:
-      Titulo:
+    Vídeo 3.2:
+      Titulo: GitHub como um Repositório Maven
       Tipo:
       Competências e habilidades:
         -
       Roteiro:
-        -
+        - Apresentar ideia. (https://www.baeldung.com/maven-repo-github)
+        - Criar repositório maven no github
+        - Criar token github (icone -> settings -> Developer settings -> Personal access tokens -> Generate new token (Classic))
+        - Configurar (pom.xml)
+        - Configurar maven (~/.m2/settings.xml)
+        - executar mvn clean deploy
 
     Vídeo 3.:
-      Titulo:
+      Titulo: GitHub Actions
       Tipo:
       Competências e habilidades:
         -
       Roteiro:
-        -
+        - Criar maven-publish.yml (https://docs.github.com/pt/actions/tutorials/build-and-test-code/java-with-maven)
+        - Estruturar on push
+        - Criar steps java
+        - Configurar cache maven
 
     Vídeo 3.:
       Titulo:
