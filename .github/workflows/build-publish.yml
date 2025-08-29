@@ -60,7 +60,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: rodsordi/alura
+          images: rodsordi/api-market-place
 
       - name: Constroi e envia imagem Docker
         id: push
@@ -75,7 +75,7 @@ jobs:
       - name: Gera atestado do artifact
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: index.docker.io/rodsordi/alura
+          subject-name: index.docker.io/rodsordi/api-market-place
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 

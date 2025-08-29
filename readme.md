@@ -59,10 +59,19 @@ redis
 
 ```mvn clean install -DskipTests```
 
-## 🎬 Executando
+## ▶️ Executando pacote
 
 ``` sh
 java -jar -Dspring.profiles.active=local,infra_local application/target/api-market-place.application-0.0.1-SNAPSHOT.jar
+```
+
+## 🎬 Executando imagem
+
+``` sh
+docker run -d \
+-p 8080:8080 \
+--name=api-market-place \
+rodsordi/api-market-place
 ```
 
 ## 👌 Executando Testes

@@ -392,9 +392,8 @@ Treinamento:
       Competências e habilidades:
         - Entender como executar a imagem publicada localmente
       Roteiro:
-        - Fazer o pull da imagem construída
         - Subir dependências na máquina local (postgres, localstack, rabbitmq, redis)
-        - Executar a imagem
+        - Fazer o pull da imagem construída e executar a imagem
 
     Vídeo 3.5:
       Titulo: GitHub Actions Integration Tests
