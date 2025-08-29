@@ -343,7 +343,7 @@ Treinamento:
       Competências e habilidades:
         - Entender como funciona o empacotamento com maven no github actions
       Roteiro:
-        - Criar maven-publish.yml
+        - Criar build-publish.yml
         - Seguir documentação (https://docs.github.com/pt/actions/tutorials/build-and-test-code/java-with-maven)
         - Fazer o download do artefato (Maven Package -> pipe -> Artifacts)
 
