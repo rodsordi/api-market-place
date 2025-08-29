@@ -386,8 +386,19 @@ Treinamento:
         - Apresentar documentação (https://docs.github.com/pt/actions/tutorials/publish-packages/publish-docker-images)
         - Criar job (build-publish.yml)
         - Commit, push, actions
+        - Validar imagem publicada no docker hub
 
     Vídeo 3.4:
+      Titulo: Executar projeto publicado
+      Tipo: Problema/Solução
+      Competências e habilidades:
+        - Entender como executar a imagem publicada localmente
+      Roteiro:
+        - Fazer o pull da imagem construída
+        - Subir dependências na máquina local (postgres, localstack, rabbitmq, redis)
+        - Executar a imagem
+
+    Vídeo 3.5:
       Titulo: GitHub Actions Integration Tests
       Tipo: Problema/Solução
       Competências e habilidades:
@@ -396,7 +407,7 @@ Treinamento:
         - Criar job (build-publish.yml)
         - Commit, push, actions
 
-    Vídeo 3.5:
+    Vídeo 3.6:
       Titulo: Conclusão
       Tipo: Contexto
       Competências e habilidades:
