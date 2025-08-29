@@ -1,7 +1,7 @@
 name: Build Publish
 on:
   push:
-    branches: ['main']
+    branches: ['master']
 jobs:
   build:
     name: Construir artefato com Maven
