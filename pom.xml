@@ -27,7 +27,6 @@
         <module>domain</module>
         <module>infra</module>
         <module>application</module>
-        <module>iandt</module>
     </modules>
 
     <!-- Disponibiliza as dependências dos módulos para serem utilizadas pelos módulos filhos -->
