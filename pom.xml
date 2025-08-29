@@ -32,7 +32,6 @@
 
     <!-- Perfil para ativar a execução de testes de integração -->
     <!-- Quando ativado, então desabilita a execução dos testes de unidade -->
-
     <profiles>
         <profile>
             <id>integrationTests</id>
