@@ -14,39 +14,25 @@ API Responsável por gerenciar produtos no marketplace.
 - Postgres (Imagem Docker)
 
 ``` sh
-docker run -d \
--p 5432:5432 \
---name postgres \
--e POSTGRES_PASSWORD=postgres \
-postgres
+docker run -d -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=postgres postgres
 ```
 
 - Localstack (Imagem Docker)
 
 ``` sh
-docker run -d \
--p 4566:4566 \
--p 4510-4559:4510-4559 \
---name=localstack \
-localstack/localstack
+docker run -d -p 4566:4566 -p 4510-4559:4510-4559 --name=localstack localstack/localstack
 ```
 
 - RabbitMQ (Imagem Docker)
 
 ``` sh
-docker run -d \
--p 5672:5672 \
---name=rabbitmq \
-rabbitmq
+docker run -d -p 5672:5672 --name=rabbitmq rabbitmq
 ```
 
 - Redis (Imagem Docker)
 
 ``` sh
-docker run -d \
--p 6379:6379 \
---name=redis \
-redis
+docker run -d -p 6379:6379 --name=redis redis
 ```
 
 ## 🌳 Variáveis de ambiente
@@ -68,10 +54,7 @@ java -jar -Dspring.profiles.active=local,infra_local application/target/api-mark
 ## 🎬 Executando imagem
 
 ``` sh
-docker run -d \
--p 8080:8080 \
---name=api-market-place \
-rodsordi/api-market-place:master
+docker run -d -p 8080:8080 --name=api-market-place rodsordi/api-market-place:master
 ```
 
 ## 👌 Executando Testes
