@@ -78,3 +78,21 @@ jobs:
           subject-name: index.docker.io/rodsordi/alura
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+
+  integration_tests:
+    needs: [publish_to_registry]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configura jdk
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          architecture: x64
+          cache: maven
+
+      - name: Executa testes integrados com Maven
+        run: mvn test -DintegrationTests

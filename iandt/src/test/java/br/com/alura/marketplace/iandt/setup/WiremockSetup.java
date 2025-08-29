@@ -1,4 +1,4 @@
-package br.com.alura.marketplace.iandt;
+package br.com.alura.marketplace.iandt.setup;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.jupiter.api.AfterAll;
@@ -9,21 +9,21 @@ import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
 public interface WiremockSetup {
 
-    WireMockServer wireMockServer = new WireMockServer(9090);
+    WireMockServer WIRE_MOCK = new WireMockServer(9090);
 
     @BeforeAll
     static void wiremockBeforeAll() {
-        wireMockServer.start();
-        configureFor("localhost", wireMockServer.port());
+        WIRE_MOCK.start();
+        configureFor("localhost", WIRE_MOCK.port());
     }
 
     @AfterAll
     static void wiremockAfterAll() {
-        wireMockServer.stop();
+        WIRE_MOCK.stop();
     }
 
     @AfterEach
     default void wiremockAfterEach() {
-        wireMockServer.resetAll();
+        WIRE_MOCK.resetAll();
     }
 }

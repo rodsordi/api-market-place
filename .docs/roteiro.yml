@@ -182,6 +182,18 @@ Treinamento:
         - Criar teste para salvar produto (ProdutoRepositoryTest)
         - Criar teste para consultar produtos com filtros
 
+    Vídeo 1.14:
+      Titulo: Conclusão
+      Tipo: Contexto
+      Competências e habilidades:
+        - Recapitular os temas abordados
+      Roteiro:
+        - Recapitular testes de unidade
+        - Recapitular impacto da arquitetura nos testes
+        - Recapitular a importância de se planejar usando processos de desenvolvimento
+        - Recapitular JUnit5
+        - Comentar sobre próximos passos
+
   Aula 2:
     Titulo: Testes de integração em APIs back-end com spring boot
     Objetivos:
@@ -232,6 +244,8 @@ Treinamento:
       Roteiro:
         - Explicar que o teste container é uma ferramenta para substituir mocks e serviços em memória (https://testcontainers.com/guides/getting-started-with-testcontainers-for-java/)
         - Explicar prós e contras de teste de integração em memória vs reais
+        - Configurar maven-jar-plugin (todos os pom.xml)
+        - Configurar o profile integrationTests (./pom.xml e iandt/pom.xml)
 
     Vídeo 2.3:
       Titulo: Rest Assured
@@ -313,6 +327,16 @@ Treinamento:
         - Setup config (RedisSetup)
         - Implementar test
 
+    Vídeo 2.9:
+      Titulo: Conclusão
+      Tipo: Contexto
+      Competências e habilidades:
+        - Recapitular os temas abordados
+      Roteiro:
+        - Recapitular testes de integração
+        - Recapitular testcontainers
+        - Comentar sobre próximos passos
+
   Aula 3:
     Titulo: Automatização de testes de integração
     Objetivos:
@@ -345,7 +369,8 @@ Treinamento:
       Roteiro:
         - Criar build-publish.yml
         - Seguir documentação (https://docs.github.com/pt/actions/tutorials/build-and-test-code/java-with-maven)
-        - Fazer o download do artefato (Maven Package -> pipe -> Artifacts)
+        - Criar job (build-publish.yml)
+        - Commit, push, actions
 
     Vídeo 3.3:
       Titulo: GitHub Actions Docker
@@ -359,14 +384,23 @@ Treinamento:
         - Criar Dockerfile
         - Configurar secrets (Settings -> Secrets and variables -> Actions)
         - Apresentar documentação (https://docs.github.com/pt/actions/tutorials/publish-packages/publish-docker-images)
+        - Criar job (build-publish.yml)
+        - Commit, push, actions
 
-
-
-    Vídeo 3.:
-      Titulo:
-      Tipo:
+    Vídeo 3.4:
+      Titulo: GitHub Actions Integration Tests
+      Tipo: Problema/Solução
       Competências e habilidades:
-        -
+        - Entender como funciona a execução de testes de integração no github actions
       Roteiro:
-        -
+        - Criar job (build-publish.yml)
+        - Commit, push, actions
 
+    Vídeo 3.5:
+      Titulo: Conclusão
+      Tipo: Contexto
+      Competências e habilidades:
+        - Recapitular os temas abordados
+      Roteiro:
+        - Recapitular ci/cd
+        - Recapitular benefícios da pipeline de testes de integração

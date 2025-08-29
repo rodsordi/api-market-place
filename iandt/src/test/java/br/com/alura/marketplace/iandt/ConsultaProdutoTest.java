@@ -2,6 +2,9 @@ package br.com.alura.marketplace.iandt;
 
 import br.com.alura.marketplace.application.Application;
 import br.com.alura.marketplace.domain.repository.ProdutoRepository;
+import br.com.alura.marketplace.iandt.setup.LocalStackSetup;
+import br.com.alura.marketplace.iandt.setup.PostgresSetup;
+import br.com.alura.marketplace.iandt.setup.RedisSetup;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ContextConfiguration(classes = Application.class)
 @Testcontainers
-class ConsultaProdutoTest implements PostgresSetup, LocalstackSetup, RedisSetup {
+class ConsultaProdutoTest implements PostgresSetup, LocalStackSetup, RedisSetup {
 
     @LocalServerPort
     Integer port;
