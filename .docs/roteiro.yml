@@ -341,20 +341,26 @@ Treinamento:
       Titulo: GitHub Actions Maven
       Tipo: Problema/Solução
       Competências e habilidades:
-        -
+        - Entender como funciona o empacotamento com maven no github actions
       Roteiro:
-        - Criar maven-publish.yml
+        - Criar build-publish.yml
         - Seguir documentação (https://docs.github.com/pt/actions/tutorials/build-and-test-code/java-with-maven)
         - Fazer o download do artefato (Maven Package -> pipe -> Artifacts)
-        -
 
     Vídeo 3.3:
       Titulo: GitHub Actions Docker
-      Tipo:
+      Tipo: Problema/Solução
       Competências e habilidades:
         -
       Roteiro:
-        -
+        - Criar conta no docker hub
+        - Apresentar plano gratuito (https://www.docker.com/pricing)
+        - Criar docker-publish.yml
+        - Criar Dockerfile
+        - Configurar secrets (Settings -> Secrets and variables -> Actions)
+        - Apresentar documentação (https://docs.github.com/pt/actions/tutorials/publish-packages/publish-docker-images)
+
+
 
     Vídeo 3.:
       Titulo:

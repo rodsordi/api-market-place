@@ -1,10 +1,40 @@
-name: Publish Docker image
+name: Build Publish
 on:
   push:
-    branches: ['release']
+    branches: ['main']
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  build:
+    name: Construir artefato com Maven
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout do repositório
+      uses: actions/checkout@v4
+
+    - name: Configura jdk
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        architecture: x64
+        cache: maven
+
+    - name: Executa testes com Maven
+      run: mvn test
+
+    - name: Empacota artefato com Maven
+      run: mvn package -DskipTests
+
+    - name: Prepara o artefato para upload
+      run: mkdir staging && cp application/target/*.jar staging
+
+    - name: Executa upload do artefato
+      uses: actions/upload-artifact@v4
+      with:
+        name: Package
+        path: staging
+
+  publish_to_registry:
+    name: Enviar imagem docker para o Docker Hub
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -13,10 +43,10 @@ jobs:
       id-token: write
 
     steps:
-      - name: Check out the repo
+      - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: Log in to Docker Hub
+      - name: Login em Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
