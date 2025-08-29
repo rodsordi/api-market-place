@@ -9,7 +9,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Set up JDK 21
+    - name: Configura jdk
       uses: actions/setup-java@v4
       with:
         java-version: '21'
@@ -17,13 +17,16 @@ jobs:
         architecture: x64
         cache: maven
 
-    - name: Build with Maven
-      run: mvn --batch-mode --update-snapshots verify
+    - name: Executa testes com Maven
+      run: mvn test
 
-    - name: Prepare artifact for upload
+    - name: Empacota artefato com Maven
+      run: mvn package -DskipTests
+
+    - name: Prepara o artefato para upload
       run: mkdir staging && cp application/target/*.jar staging
 
-    - name: Upload artifact
+    - name: Executa upload do artefato
       uses: actions/upload-artifact@v4
       with:
         name: Package
