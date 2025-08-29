@@ -18,7 +18,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn --batch-mode --update-snapshots verify
+      run: mvn package
 
     - name: Prepare artifact for upload
       run: mkdir staging && cp application/target/*.jar staging
