@@ -18,10 +18,10 @@ jobs:
         cache: maven
 
     - name: Executa testes com Maven
-      run: mvn clean test
+      run: mvn test
 
     - name: Empacota artefato com Maven
-      run: mvn clean package -DskipTests
+      run: mvn package -DskipTests
 
     - name: Prepara o artefato para upload
       run: mkdir staging && cp application/target/*.jar staging
@@ -69,7 +69,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: rodsordi/api-market-place:1.4
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Gera atestado do artifact
