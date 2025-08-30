@@ -1,0 +1,30 @@
+name: Build Publish
+on:
+  push:
+    branches: ['aula-3-github-actions']
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar jdk
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+          architecture: x64
+          cache: maven
+
+      - name: Executa testes com Maven
+        run: mvn test
+
+      - name: Empacota artefato com Maven
+        run: mvn package -DskipTests
+
+      - name: Guarda artefato em cache
+        uses: actions/cache@v3
+        with:
+          key: package
+          path: .
