@@ -1,4 +1,3 @@
-version: '2'
 services:
 
   postgres:
@@ -7,23 +6,38 @@ services:
       POSTGRES_PASSWORD: "postgres"
     ports:
       - "5432:5432"
-    restart: always
+    network_mode: host
 
   localstack:
     image: localstack/localstack
     ports:
       - "4566:4566"
       - "4510-4559:4510-4559"
-    restart: always
+    network_mode: host
 
   rabbitmq:
     image: rabbitmq
     ports:
       - "5672:5672"
-    restart: always
+    network_mode: host
 
   redis:
     image: redis
     ports:
       - "6379:6379"
-    restart: always
+    network_mode: host
+
+  api-market-place:
+    image: rodsordi/api-market-place:master
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_started
+      localstack:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      redis:
+        condition: service_started
+    network_mode: host
