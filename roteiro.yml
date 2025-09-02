@@ -2,12 +2,8 @@ Treinamento:
   Titulo: Testes de Integração de back-ends(APIs)
 
   Pre-requisitos:
-    aws-cli:
-      - download aws cli (https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html)
-      - instalar aws cli
-      - executar aws help
-      - executar aws configure
-      - preencher apenas region com "us-east-1"
+    Environment Variables:
+      - Adicionar no sistema operacional a seguinte variável de ambiente: AWS_REGION=us-east-1
 
   Aula 1:
     Titulo: Estruturando testes usando JUnit 5

@@ -27,10 +27,10 @@ jobs:
       run: mkdir staging && cp application/target/*.jar staging
 
     - name: Executa upload do artefato
-      uses: actions/cache@v3
+      uses: actions/upload-artifact@v4
       with:
-        key: package
-        path: .
+        name: api-market-place-artifact
+        path: staging
 
   publish_to_registry:
     needs: [build]
@@ -45,10 +45,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download do artefato
-        uses: actions/cache@v3
+        uses: actions/download-artifact@v4
         with:
-          key: package
-          path: .
+          name: staging
 
       - name: Login em Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
