@@ -23,14 +23,11 @@ jobs:
     - name: Empacota artefato com Maven
       run: mvn package -DskipTests
 
-    - name: Prepara o artefato para upload
-      run: mkdir staging && cp application/target/*.jar staging
-
     - name: Executa upload do artefato
       uses: actions/upload-artifact@v4
       with:
         name: api-market-place-artifact
-        path: staging
+        path: application/target
 
   publish_to_registry:
     needs: [build]
