@@ -47,7 +47,7 @@ jobs:
       - name: Download do artefato
         uses: actions/download-artifact@v4
         with:
-          name: staging
+          name: api-market-place-artifact
 
       - name: Login em Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
