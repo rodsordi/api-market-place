@@ -33,7 +33,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     permissions:
-      package: write
+      packages: write
       contents: read
       attestations: write
       id-token: write
