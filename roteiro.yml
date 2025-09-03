@@ -382,21 +382,20 @@ Treinamento:
       Roteiro:
         - Criar conta no docker hub
         - Apresentar plano gratuito (https://www.docker.com/pricing)
-        - Criar docker-publish.yml
         - Criar Dockerfile
         - Configurar secrets (Settings -> Secrets and variables -> Actions)
         - Apresentar documentação (https://docs.github.com/pt/actions/tutorials/publish-packages/publish-docker-images)
         - Criar job (build-publish.yml)
-        - Commit, push, actions
-        - Validar imagem publicada no docker hub
-
+        
     Vídeo 3.4:
-      Titulo: Executar projeto publicado
+      Titulo: Validando imagem Docker
       Tipo: Problema/Solução
       Competências e habilidades:
         - Entender como executar a imagem publicada localmente
       Roteiro:
-        - Subir dependências na máquina local (postgres, localstack, rabbitmq, redis)
+        - Commit, push, actions
+        - Validar imagem publicada no docker hub
+        - Criar docker-compose.yml
         - Fazer o pull da imagem construída e executar a imagem
 
     Vídeo 3.5:
