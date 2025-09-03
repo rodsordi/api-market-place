@@ -11,6 +11,29 @@
 
     <artifactId>api-market-place.iandt</artifactId>
 
+    <profiles>
+        <profile>
+            <id>integrationTests</id>
+            <activation>
+                <property>
+                    <name>integrationTests</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>false</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <dependencies>
         <!-- Dependências de módulos -->
         <dependency>

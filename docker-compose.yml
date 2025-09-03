@@ -26,3 +26,18 @@ services:
     ports:
       - "6379:6379"
     network_mode: host
+
+  api-market-place:
+    image: rodsordi/api-market-place:master
+    ports:
+      - "8080:8080"
+    network_mode: host
+    depends_on:
+      postgres:
+        condition: service_started
+      localstack:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
+      redis:
+        condition: service_started
