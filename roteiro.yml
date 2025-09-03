@@ -399,7 +399,7 @@ Treinamento:
         - Fazer o pull da imagem construída e executar a imagem
 
     Vídeo 3.5:
-      Titulo: GitHub Actions Integration Tests
+      Titulo: GitHub Actions Testes de Integração
       Tipo: Problema/Solução
       Competências e habilidades:
         - Entender como funciona a execução de testes de integração no github actions
