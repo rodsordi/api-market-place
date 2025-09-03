@@ -69,7 +69,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Gera atestado da imagem
-        uses: action/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v2
         with:
           subject-name: index.docker.io/rodsordi/api-market-place
           subject-digest: ${{ steps.push.outputs.digest }}
